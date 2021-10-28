@@ -9,7 +9,7 @@ To covert the extension table of the Exiobase dataset in RDF, we follow the foll
 
 SETLBI link: https://github.com/rudrapratapdebnath/setlbi 
 
-All source intermediate and RDF files are available in the Extension folder of this repository. There are two larger files in the Instance folder. Therefore, we direct users to  https://drive.google.com/drive/folders/1eJM2x3Aa01JcRJ2HUL37HgBRVGdwEqdR?usp=sharing. 
+All source intermediate and RDF files are available in the Extension folder of this repository. There are two larger files in the Instance folder which is missing in the Extension folder. Therefore, we direct users to https://drive.google.com/drive/folders/1eJM2x3Aa01JcRJ2HUL37HgBRVGdwEqdR?usp=sharing. 
 
 1.	Source data cleansing (RStudio (R script))  
  Flow Objects from the extension table: In the extension table, there exist different types of emissions (normal, unregistered, and avoided), different types of waste (waste, machinery, stock, and packing), Lands, Resources, and crop-residues. From the classification Excel file, we manually create a code for each flow objects. The output file contains five Excel sheets and each Excel sheet contains a category of flow objects. The column names of each sheet are Code and Name, where Code contains the generated codes and Name records the names of flow objects. 
