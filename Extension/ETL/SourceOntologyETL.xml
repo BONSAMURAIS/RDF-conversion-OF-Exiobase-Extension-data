@@ -1,0 +1,136 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<ETL>
+	<Start id="1634619399300">
+		<OperationName>Start</OperationName>
+		<UpperLeftX>50</UpperLeftX>
+		<UpperLeftY>150</UpperLeftY>
+	<InputStatus>true</InputStatus>
+		<NextOperations>
+			<item>1634619403634</item>
+			<item>1634625316555</item>
+			<item>1634625634741</item>
+			<item>1634626290340</item>
+			<item>1634626292594</item>
+			<item>1634626504357</item>
+		</NextOperations>
+	</Start>
+	<NonSemanticToTBoxDeriver id="1634625634741">
+		<OperationName>NonSemanticToTBoxDeriver</OperationName>
+		<UpperLeftX>352</UpperLeftX>
+		<UpperLeftY>165</UpperLeftY>
+		<InputStatus>true</InputStatus>
+		<IsExecuted>false</IsExecuted>
+		<FileType>CSV</FileType>
+		<CsvDelimiter>Comma (,)</CsvDelimiter>
+		<CsvPrefix>http://exiobase/source</CsvPrefix>
+		<CsvSource>C:\Extension\Flowobject.csv</CsvSource>
+		<CsvTarget>C:\Extension\SourceOntology\Flowobject.ttl</CsvTarget>
+		<CsvTargetType>Turtle</CsvTargetType>
+		<JsonSource></JsonSource>
+		<JsonTarget></JsonTarget>
+		<JsonPrefix></JsonPrefix>
+		<JsonTargetType></JsonTargetType>
+		<XmlSource></XmlSource>
+		<XmlTarget></XmlTarget>
+		<XmlPrefix></XmlPrefix>
+		<XmlTargetType></XmlTargetType>
+		<ExcelPrefix></ExcelPrefix>
+		<ExcelSource></ExcelSource>
+		<ExcelTarget></ExcelTarget>
+		<ExcelTargetType></ExcelTargetType>
+	</NonSemanticToTBoxDeriver>
+	<NonSemanticToTBoxDeriver id="1634626290340">
+		<OperationName>NonSemanticToTBoxDeriver</OperationName>
+		<UpperLeftX>358</UpperLeftX>
+		<UpperLeftY>280</UpperLeftY>
+		<InputStatus>true</InputStatus>
+		<IsExecuted>false</IsExecuted>
+		<FileType>CSV</FileType>
+		<CsvDelimiter>Comma (,)</CsvDelimiter>
+		<CsvPrefix>http://exiobase/source</CsvPrefix>
+		<CsvSource>C:\Extension\Activity.csv</CsvSource>
+		<CsvTarget>C:\Extension\SourceOntology\Activity.ttl</CsvTarget>
+		<CsvTargetType>Turtle</CsvTargetType>
+		<JsonSource></JsonSource>
+		<JsonTarget></JsonTarget>
+		<JsonPrefix></JsonPrefix>
+		<JsonTargetType></JsonTargetType>
+		<XmlSource></XmlSource>
+		<XmlTarget></XmlTarget>
+		<XmlPrefix></XmlPrefix>
+		<XmlTargetType></XmlTargetType>
+		<ExcelPrefix></ExcelPrefix>
+		<ExcelSource></ExcelSource>
+		<ExcelTarget></ExcelTarget>
+		<ExcelTargetType></ExcelTargetType>
+	</NonSemanticToTBoxDeriver>
+	<NonSemanticToTBoxDeriver id="1634626292594">
+		<OperationName>NonSemanticToTBoxDeriver</OperationName>
+		<UpperLeftX>366</UpperLeftX>
+		<UpperLeftY>374</UpperLeftY>
+		<InputStatus>true</InputStatus>
+		<IsExecuted>false</IsExecuted>
+		<FileType>CSV</FileType>
+		<CsvDelimiter>Comma (,)</CsvDelimiter>
+		<CsvPrefix>http://exiobase/source</CsvPrefix>
+		<CsvSource>C:\Extension\Inputflow.csv</CsvSource>
+		<CsvTarget>C:\Extension\SourceOntology\Inputflow.ttl</CsvTarget>
+		<CsvTargetType>Turtle</CsvTargetType>
+		<JsonSource></JsonSource>
+		<JsonTarget></JsonTarget>
+		<JsonPrefix></JsonPrefix>
+		<JsonTargetType></JsonTargetType>
+		<XmlSource></XmlSource>
+		<XmlTarget></XmlTarget>
+		<XmlPrefix></XmlPrefix>
+		<XmlTargetType></XmlTargetType>
+		<ExcelPrefix></ExcelPrefix>
+		<ExcelSource></ExcelSource>
+		<ExcelTarget></ExcelTarget>
+		<ExcelTargetType></ExcelTargetType>
+	</NonSemanticToTBoxDeriver>
+	<NonSemanticToTBoxDeriver id="1634626504357">
+		<OperationName>NonSemanticToTBoxDeriver</OperationName>
+		<UpperLeftX>386</UpperLeftX>
+		<UpperLeftY>466</UpperLeftY>
+		<InputStatus>true</InputStatus>
+		<IsExecuted>false</IsExecuted>
+		<FileType>CSV</FileType>
+		<CsvDelimiter>Comma (,)</CsvDelimiter>
+		<CsvPrefix>http://exiobase/source</CsvPrefix>
+		<CsvSource>C:\Extension\Outputflow.csv</CsvSource>
+		<CsvTarget>C:\Extension\SourceOntology\Outputflow.ttl</CsvTarget>
+		<CsvTargetType>Turtle</CsvTargetType>
+		<JsonSource></JsonSource>
+		<JsonTarget></JsonTarget>
+		<JsonPrefix></JsonPrefix>
+		<JsonTargetType></JsonTargetType>
+		<XmlSource></XmlSource>
+		<XmlTarget></XmlTarget>
+		<XmlPrefix></XmlPrefix>
+		<XmlTargetType></XmlTargetType>
+		<ExcelPrefix></ExcelPrefix>
+		<ExcelSource></ExcelSource>
+		<ExcelTarget></ExcelTarget>
+		<ExcelTargetType></ExcelTargetType>
+	</NonSemanticToTBoxDeriver>
+	<Arrows>
+		<Arrow>
+			<SourceOperation>1634619399300</SourceOperation>
+			<TargetOperation>1634625634741</TargetOperation>
+		</Arrow>
+		<Arrow>
+			<SourceOperation>1634619399300</SourceOperation>
+			<TargetOperation>1634626290340</TargetOperation>
+		</Arrow>
+		<Arrow>
+			<SourceOperation>1634619399300</SourceOperation>
+			<TargetOperation>1634626292594</TargetOperation>
+		</Arrow>
+		<Arrow>
+			<SourceOperation>1634619399300</SourceOperation>
+			<TargetOperation>1634626504357</TargetOperation>
+		</Arrow>
+	</Arrows>
+</ETL>
+

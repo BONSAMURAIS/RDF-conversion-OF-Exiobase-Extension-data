@@ -1,0 +1,98 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<ETL>
+	<Start id="1634719266248">
+		<OperationName>Start</OperationName>
+		<UpperLeftX>92</UpperLeftX>
+		<UpperLeftY>155</UpperLeftY>
+	<InputStatus>true</InputStatus>
+		<NextOperations>
+			<item>1634719276085</item>
+			<item>1634719279264</item>
+			<item>1634719281447</item>
+			<item>1634719283772</item>
+		</NextOperations>
+	</Start>
+	<InstanceEntryGenerator id="1634719276085">
+		<OperationName>InstanceGenerator</OperationName>
+		<UpperLeftX>297</UpperLeftX>
+		<UpperLeftY>155</UpperLeftY>
+		<InputStatus>true</InputStatus>
+		<IsExecuted>false</IsExecuted>
+		<SourceCSV>C:\Extension\Activity.csv</SourceCSV>
+		<Delimiter>Comma (,)</Delimiter>
+		<FileType>CSV</FileType>
+		<TargetType>Turtle</TargetType>
+		<MappingFile>C:\Extension\Mapping\map_version_1.ttl</MappingFile>
+		<SourceABoxFile>null</SourceABoxFile>
+		<ProvFile>C:\Extension\prov.ttl</ProvFile>
+		<TargetTBoxFile>C:\Extension\TargetOntology\Target.ttl</TargetTBoxFile>
+		<TargetABoxFile>C:\Extension\Instance\Activity.ttl</TargetABoxFile>
+	</InstanceEntryGenerator>
+	<InstanceEntryGenerator id="1634719279264">
+		<OperationName>InstanceGenerator</OperationName>
+		<UpperLeftX>299</UpperLeftX>
+		<UpperLeftY>244</UpperLeftY>
+		<InputStatus>true</InputStatus>
+		<IsExecuted>false</IsExecuted>
+		<SourceCSV>C:\Extension\Flowobject.csv</SourceCSV>
+		<Delimiter>Comma (,)</Delimiter>
+		<FileType>CSV</FileType>
+		<TargetType>Turtle</TargetType>
+		<MappingFile>C:\Extension\Mapping\map_version_1.ttl</MappingFile>
+		<SourceABoxFile>null</SourceABoxFile>
+		<ProvFile>C:\Extension\prov.ttl</ProvFile>
+		<TargetTBoxFile>C:\Extension\TargetOntology\Target.ttl</TargetTBoxFile>
+		<TargetABoxFile>C:\Extension\Instance\Flowobject.ttl</TargetABoxFile>
+	</InstanceEntryGenerator>
+	<InstanceEntryGenerator id="1634719281447">
+		<OperationName>InstanceGenerator</OperationName>
+		<UpperLeftX>309</UpperLeftX>
+		<UpperLeftY>329</UpperLeftY>
+		<InputStatus>true</InputStatus>
+		<IsExecuted>false</IsExecuted>
+		<SourceCSV>C:\Extension\Inputflow.csv</SourceCSV>
+		<Delimiter>Comma (,)</Delimiter>
+		<FileType>CSV</FileType>
+		<TargetType>Turtle</TargetType>
+		<MappingFile>C:\Extension\Mapping\map_version_1.ttl</MappingFile>
+		<SourceABoxFile>null</SourceABoxFile>
+		<ProvFile>C:\Extension\prov.ttl</ProvFile>
+		<TargetTBoxFile>C:\Extension\TargetOntology\Target.ttl</TargetTBoxFile>
+		<TargetABoxFile>C:\Extension\Instance\Inputflow.ttl</TargetABoxFile>
+	</InstanceEntryGenerator>
+	<InstanceEntryGenerator id="1634719283772">
+		<OperationName>InstanceGenerator</OperationName>
+		<UpperLeftX>315</UpperLeftX>
+		<UpperLeftY>434</UpperLeftY>
+		<InputStatus>true</InputStatus>
+		<IsExecuted>false</IsExecuted>
+		<SourceCSV>C:\Extension\Outputflow.csv</SourceCSV>
+		<Delimiter>Comma (,)</Delimiter>
+		<FileType>CSV</FileType>
+		<TargetType>Turtle</TargetType>
+		<MappingFile>C:\Extension\Mapping\map_version_1.ttl</MappingFile>
+		<SourceABoxFile>null</SourceABoxFile>
+		<ProvFile>C:\Extension\prov.ttl</ProvFile>
+		<TargetTBoxFile>C:\Extension\TargetOntology\Target.ttl</TargetTBoxFile>
+		<TargetABoxFile>C:\Extension\Instance\Outputflows.ttl</TargetABoxFile>
+	</InstanceEntryGenerator>
+	<Arrows>
+		<Arrow>
+			<SourceOperation>1634719266248</SourceOperation>
+			<TargetOperation>1634719276085</TargetOperation>
+		</Arrow>
+		<Arrow>
+			<SourceOperation>1634719266248</SourceOperation>
+			<TargetOperation>1634719279264</TargetOperation>
+		</Arrow>
+		<Arrow>
+			<SourceOperation>1634719266248</SourceOperation>
+			<TargetOperation>1634719281447</TargetOperation>
+		</Arrow>
+		<Arrow>
+			<SourceOperation>1634719266248</SourceOperation>
+			<TargetOperation>1634719283772</TargetOperation>
+		</Arrow>
+	</Arrows>
+</ETL>
+
