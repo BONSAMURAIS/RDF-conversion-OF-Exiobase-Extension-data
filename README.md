@@ -1,4 +1,4 @@
-# RDF-conversion-Exiobase-Extension-data
+# RDF-conversion of the Exiobase Extension data
 
 Steps for the RDF conversion of the extension table of the Exobases dataset:
 To covert the extension table of the Exiobase dataset in RDF, we follow the following four steps:
