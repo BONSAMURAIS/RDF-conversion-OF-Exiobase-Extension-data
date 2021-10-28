@@ -1,0 +1,220 @@
+---
+title: "Extension Table Processing"
+output: html_document
+---
+
+---
+title: "ExcelProcessing"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+
+
+#install and load xlsx package
+```{}
+# execute installation command line by line or write in the console if it shows errors. 
+# set your working directory with the command: setwd("path") 
+# check the path with the command: getwd()
+
+# set your Java home. 
+Sys.setenv(JAVA_HOME= 'C:\\Program Files\\Java\\jdk-11.0.2') 
+
+# set you java heap size
+options(java.parameters="-Xmx4096m") 
+
+
+# The easiest way to install the latest released version from CRAN is to install the whole tidyverse
+install.packages("tidyverse")
+# package to process excel files
+install.packages("readxl") 
+
+# to convert matrix to three columns table install and use  reshape2 package
+install.packages("reshape2")
+
+
+install.packages("data.table")
+# for data selection from frame %>%
+install.packages("dplyr")
+
+# for substring processing
+install.packages("stringr")
+
+#import the packages
+library(tidyverse)
+library(readxl)
+library(reshape2)
+library(data.table)
+library(dplyr)
+library(stringr)
+````
+
+
+
+## Cleansing Extension flow object table
+
+````{}
+setwd('C:/Extension/Excel/Processed')
+path <-"extension_flow_objects.xlsx"
+
+
+# retrieve the number of sheets in the excel file
+
+numberOfSheet <-length( excel_sheets( path ) )
+
+name <- excel_sheets(path = path)
+
+
+
+for (j in 1:5)
+{
+
+# reading the excel sheet and put it in a data frame
+flowObject <- read_excel(path, sheet=j)# reading file
+#View(originalfile)
+
+if(j==1)
+{
+write.table(flowObject, file="C:/Extension/Flowobject.csv", append = TRUE, row.names = FALSE, col.names = TRUE, sep=",",fileEncoding = "UTF-8")
+}
+
+else
+{
+write.table(flowObject, file="C:/Extension/Flowobject.csv", append = TRUE, row.names = FALSE, col.names = FALSE, sep=",",fileEncoding = "UTF-8")
+}
+}
+
+
+````
+
+
+
+
+# cleansing Extension use table (input flow)
+```{}
+path <-"extension_use.xlsx"
+
+
+# retrieve the number of sheets in the excel file
+
+numberOfSheet <-length( excel_sheets( path ) )
+
+name <- excel_sheets(path = path)
+
+
+
+for (j in 1:numberOfSheet)
+{
+# reading the excel sheet and put it in a data frame
+originalfile <- read_excel(path, sheet=j)# reading file
+#View(originalfile)
+# Placing the measures into a separate column
+matrixToThreeColumns <-setNames(melt(originalfile), c('hasObjectType', 'isInputOf', 'hasNumericalValue'))
+format(matrixToThreeColumns$hasNumericalValue, scientific=FALSE)
+
+# adding the Unit column
+matrixToThreeColumns$hasUnit<- ifelse(matrixToThreeColumns$hasObjectType %in% c("R_WCBL", "R_WCGR","R_WIBL"), "Mm3", ifelse(matrixToThreeColumns$hasObjectType %in% c("L_ARBL", "L_FRST","L_GRAS", "L_OTHW", "L_INST"), "ha", "tonne") )
+
+
+matrixToThreeColumns<- matrixToThreeColumns %>% filter (hasNumericalValue != 0.0) 
+
+
+if(j==1)
+{
+write.table(matrixToThreeColumns, file="C:/Extension/Inputflow.csv", append = TRUE, row.names = FALSE, col.names = TRUE, sep=",",fileEncoding = "UTF-8")
+}
+else
+{
+write.table(matrixToThreeColumns, file="C:/Extension/Inputflow.csv", append = TRUE, row.names = FALSE, col.names = FALSE, sep=",",fileEncoding = "UTF-8")
+}
+
+}
+
+```
+
+
+# cleansing Extension supply table (output flow)
+```{}
+path <-"extension_supply.xlsx"
+
+
+# retrieve the number of sheets in the excel file
+
+numberOfSheet <-length( excel_sheets( path ) )
+
+name <- excel_sheets(path = path)
+
+
+
+for (j in 1:numberOfSheet)
+{
+# reading the excel sheet and put it in a data frame
+originalfile <- read_excel(path, sheet=j)# reading file
+#View(originalfile)
+# Placing the measures into a separate column
+matrixToThreeColumns <-setNames(melt(originalfile), c('hasObjectType', 'isOutputOf', 'hasNumericalValue'))
+format(matrixToThreeColumns$hasNumericalValue, scientific=FALSE)
+
+# adding the Unit column
+matrixToThreeColumns$hasUnit<- ifelse(matrixToThreeColumns$hasObjectType %in% c("R_WCBL", "R_WCGR","R_WIBL"), "Mm3", ifelse(matrixToThreeColumns$hasObjectType %in% c("L_ARBL", "L_FRST","L_GRAS", "L_OTHW", "L_INST"), "ha", "tonne") )
+
+
+matrixToThreeColumns<- matrixToThreeColumns %>% filter (hasNumericalValue != 0.0) 
+
+
+if(j==1)
+{
+write.table(matrixToThreeColumns, file="C:/Extension/Outputflow.csv", append = TRUE, row.names = FALSE, col.names = TRUE, sep=",",fileEncoding = "UTF-8")
+}
+else
+{
+write.table(matrixToThreeColumns, file="C:/Extension/Outputflow.csv", append = TRUE, row.names = FALSE, col.names = FALSE, sep=",",fileEncoding = "UTF-8")
+}
+
+}
+````
+
+
+
+
+## creating activities for extension table
+````{}
+df_1 <- read.table("C:/Extension/Outputflow.csv", 
+                 header = TRUE,
+                 sep = ",")
+activity<- df_1 %>% select(isOutputOf)
+names(activity)[1]<-"activityId"
+length(activity$activityId)
+#View(activity)
+
+
+df_2 <- read.table("C:/Extension/Inputflow.csv", 
+                 header = TRUE,
+                 sep = ",")
+df_2 <- df_2 %>% select(isInputOf)
+names(df_2)[1]<-"activityId"
+length(df_2$activityId)
+
+newactivity <- rbind(activity,df_2)
+activityId <- unique(newactivity$activityId)
+hasActivityType <-str_sub(activityId,1,6)
+hasLocation <-str_sub(activityId, -2,-1)
+Act<- data.frame(activityId, hasActivityType, hasLocation)
+#unique(str_length(Act$activity))
+Act$hasTemporalExtent<- 2011
+#View(Act)
+
+write.table(Act, file="C:/Extension/Activity.csv", append = FALSE, row.names = FALSE, col.names = TRUE, sep=",",fileEncoding = "UTF-8")
+
+````
+
+
